@@ -1,51 +1,67 @@
+# Imports
 import dht
 import machine
 import time
 import urequests as requests
 
-tempSensor = dht.DHT11(machine.Pin(27))     # DHT11 Constructor 
-# tempSensor = dht.DHT22(machine.Pin(27))   # DHT22 Constructor
-adc = machine.ADC(4)
+# Configuration Constants
+TOKEN = "BBUS-VG7bGtevEv2uCzkKbuKazSRLPGhcEC"
+DEVICE_LABEL = "picowboard"
+HUMIDITY_LABEL = "humidity"
+TEMPERATURE_LABEL = "temperature"
+DELAY = 2  # Delay in seconds
+TIME_TRIGGER = 10 * 60  # 10 minutes in seconds
 
-TOKEN = "BBUS-VG7bGtevEv2uCzkKbuKazSRLPGhcEC" #Put here your TOKEN
-DEVICE_LABEL = "picowboard" # Assign the device label desire to be send
-HUMIDITY_LABEL = "humidity"   # Assign the variable label desire to be send
-TEMPERATURE_LABEL = "temperature"  # Assign the variable label desire to be send
-DELAY = 60  # Delay in seconds
+# Sensor Initialization
+tempSensor = dht.DHT11(machine.Pin(27))  # DHT11 Constructor
 
-# Builds the json to send the request
+# Function Definitions
 def build_json(variable, value):
+    """Builds the JSON payload to send the request."""
     try:
-        data = {variable: {"value": value}}
-        return data
-    except:
+        return {variable: {"value": value}}
+    except Exception as e:
+        print(f"Error building JSON: {e}")
         return None
 
-# Sending data to Ubidots Restful Webserice
 def sendData(device, variable, value):
+    """Sends data to Ubidots Restful Webservice."""
     try:
-        url = "https://industrial.api.ubidots.com/"
-        url = url + "api/v1.6/devices/" + device
+        url = f"https://industrial.api.ubidots.com/api/v1.6/devices/{device}"
         headers = {"X-Auth-Token": TOKEN, "Content-Type": "application/json"}
         data = build_json(variable, value)
-
-        if data is not None:
+        if data:
             print(data)
-            req = requests.post(url=url, headers=headers, json=data)
-            return req.json()
-        else:
-            pass
-    except:
-        pass
+            response = requests.post(url=url, headers=headers, json=data)
+            return response.json()
+    except Exception as e:
+        print(f"Error sending data: {e}")
+
+# Main Loop
+t1, h1 = None, None  # Initialize previous temperature and humidity
+last_sent_time = time.time()
 
 while True:
     try:
+        current_time = time.time()
         tempSensor.measure()
-        temperature = tempSensor.temperature()
-        humidity = tempSensor.humidity()
-        print("Temperature: {} - Humidity: {}%".format(temperature, humidity))
-        returnValue = sendData(DEVICE_LABEL, TEMPERATURE_LABEL, temperature)
-        returnValue2 = sendData(DEVICE_LABEL, HUMIDITY_LABEL, humidity)
+        t2, h2 = tempSensor.temperature(), tempSensor.humidity()
+        print(f"Temperature: {t2} - Humidity: {h2}%")
+
+        # Determine if data should be sent
+        time_triggered = current_time - last_sent_time >= TIME_TRIGGER
+        temp_changed = t1 is None or t2 != t1
+        humidity_changed = h1 is None or abs(h2 - h1) > 2
+        if time_triggered or temp_changed or humidity_changed:
+            if temp_changed or time_triggered:
+                sendData(DEVICE_LABEL, TEMPERATURE_LABEL, t2)
+                t1 = t2
+            if humidity_changed or time_triggered:
+                sendData(DEVICE_LABEL, HUMIDITY_LABEL, h2)
+                h1 = h2
+            last_sent_time = current_time
+        else:
+            print("Temperature and Humidity unchanged.")
     except Exception as error:
-        print("Exception occurred", error)
+        print(f"Exception occurred: {error}")
     time.sleep(DELAY)
