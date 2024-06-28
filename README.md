@@ -78,7 +78,6 @@ How is the device programmed. Which IDE are you using. Describe all steps from f
 How is all the electronics connected? Describe all the wiring, good if you can show a circuit diagram. Be specific on how to connect everything, and what to think of in terms of resistors, current and voltage. Is this only for a development setup or could it be used in production?
 
 ![image](https://github.com/Oskar1818/LNU-IOT/assets/70581204/97baacad-f85e-4162-827f-c3fef9088672)
-![image](https://github.com/Oskar1818/LNU-IOT/assets/70581204/97baacad-f85e-4162-827f-c3fef9088672)
 
 
 - [ ] Circuit diagram (can be hand drawn)
