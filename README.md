@@ -2,44 +2,68 @@
 
 **Please keep the total length of the tutorial below 25k characters.** You can include code that is linked to a repository. Keep the code snippets in the tutorial short.
 
-## Tutorial on how to build a temperature and humidity sensor
+## Temperature and humidity measurements using Ubidots
 
 Give a short and brief overview of what your project is about.
 What needs to be included:
 
-- [ ] Title
-- [ ] Your name and student credentials (xx666x)
-- [ ] Short project overview
-- [ ] How much time it might take to do (approximation)
+- [x] Title
+- [x] Your name and student credentials (xx666x)
+- [x] Short project overview
+- [x] How much time it might take to do (approximation)
+
+Oskar Sturebrand (os222ut)
+
+With the help of a DHT11,  Raspberry pico WH and the platform Ubidots, I was able to measure and visualize my indoor temperature and humidity in a very easy way.
+
+Time to recreate: approximately 4-6 hours
 
 ### Objective
 
 Describe why you have chosen to build this specific device. What purpose does it serve? What do you want to do with the data, and what new insights do you think it will give?
 
-- [ ] Why you chose the project
-- [ ] What purpose does it serve
-- [ ] What insights you think it will give
+- [x] Why you chose the project
+- [x] What purpose does it serve
+- [x] What insights you think it will give
+
+I chose this project to be able to measure the temperature and humidity of my indoor environment in an easy and hands off manner. This project will help me determine and visualize what effect strategies have on cooling my indoor temperature. It also allows me to track humidity which also has a big impact on perceived temperature. 
+
 
 ### Material
 
 Explain all material that is needed. All sensors, where you bought them and their specifications. Please also provide pictures of what you have bought and what you are using.
 
-- [ ] List of material
+- [x] List of material
 - [ ] What the different things (sensors, wires, controllers) do - short specifications
-- [ ] Where you bought them and how much they cost
+- [x] Where you bought them and how much they cost
+
+I bought all the components off the website https://www.electrokit.com
+
+| Quantity | Component            | Price   |
+| -------- | -------------------- | ------- |
+| 1        | Raspberry Pi Pico WH | 109 SEK |
+| 1        | DHT11                | 49 SEK  |
+| 3        | Jumper Wires         | 49 SEK  |
+| 1        | Breadboard 840       | 69 SEK  |
+| 1        | Micro USB cable      | 39 SEK  |
+
+#### Raspberry Pi Pico WH
+The pi is where the script is executed from and is the the brain of this project. It queries the DHT11 sensor for the temperature and humidity readings and sends it to Ubidots. 
+
+#### DHT11
+This is the sensor that I used to measure the temperature and humidity.
+
+| Item  | Measurement Range | Humidity Accuracy | Temperature Accuracy | Resolution |
+| ----- | ----------------- | ----------------- | -------------------- | ---------- |
+| DHT11 | 20-90%RH , 0-50 ℃ | ±5％RH             | ±2℃                  | 1          |
+|       |                   |                   |                      |            |
+
+#### Jumper wires
+The jumper wires are used to connect the pico and the other components electrically. In this project we use them to connect the DHT11 to the pico.
 
 
-> Example:
->| IoT Thing | For this         |
->| --------- | ---------------- |
->| Perhaps   | a table          |
->| is a      | jolly good idea? |
->
->In this project I have chosen to work with the Pycom LoPy4 device as seen in Fig. 1, it's a neat little device programmed by MicroPython and has several bands of connectivity. The device has many digital and analog input and outputs and is well suited for an IoT project.
->
->![LoPy!](https://pycom.io/wp-content/uploads/2018/08/lopySide-1.png =360x)
->Fig. 1. LoPy4 with headers. Pycom.io
-
+#### Breadboard
+The breadboard is used to connect the different together without having to solder. 
 
 ### Computer setup
 
