@@ -79,6 +79,9 @@ How is all the electronics connected? Describe all the wiring, good if you can s
 
 ![image](https://github.com/Oskar1818/LNU-IOT/assets/70581204/97baacad-f85e-4162-827f-c3fef9088672)
 
+![image](https://github.com/Oskar1818/LNU-IOT/assets/70581204/0285446b-20b6-4189-b72b-8ea22c29a27b)
+
+
 
 - [ ] Circuit diagram (can be hand drawn)
 - [ ] *Electrical calculations
