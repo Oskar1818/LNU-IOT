@@ -36,7 +36,6 @@ This is the sensor that I used to measure the temperature and humidity. Bellow a
 | Item  | Measurement Range | Humidity Accuracy | Temperature Accuracy | Resolution |
 | ----- | ----------------- | ----------------- | -------------------- | ---------- |
 | DHT11 | 20-90%RH , 0-50 ℃ | ±5％RH             | ±2℃                  | 1          |
-|       |                   |                   |                      |            |
 
 #### Jumper wires
 The jumper wires are metal wires used to connect components electrically. They are often used in combination with a breadboard for easy setup.
