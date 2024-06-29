@@ -28,6 +28,7 @@ I bought all the components off the website https://www.electrokit.com
 The Pico is a low-cost microcontroller board. It's where the script is executed from and is the the brain of this project. It queries the DHT11 sensor for the temperature and humidity readings and sends it to Ubidots.
 ![pico c](https://github.com/Oskar1818/LNU-IOT/assets/70581204/a082c1a5-4ba8-4520-9c54-98e0de3c1d6f)
 
+<img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/a082c1a5-4ba8-4520-9c54-98e0de3c1d6f" alt="pico" width="200"/>
 
 #### DHT11
 This is the sensor that I used to measure the temperature and humidity. Bellow are some technicall details of its capabilities:
