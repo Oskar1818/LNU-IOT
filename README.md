@@ -40,7 +40,7 @@ This is the sensor that I used to measure the temperature and humidity. Bellow a
 
 #### Jumper wires
 The jumper wires are metal wires used to connect components electrically. They are often used in combination with a breadboard for easy setup.
-![wires c](https://github.com/Oskar1818/LNU-IOT/assets/70581204/66ec99f2-a465-455e-9842-f69b6cfba4fe)
+![wires c](https://github.com/Oskar1818/LNU-IOT/assets/70581204/66ec99f2-a465-455e-9842-f69b6cfba4fe){ width=50% }
 
 #### Breadboard
 The breadboard is used in combination with jumper wires to connect the different components together without having to solder. The breadboard has small holes which hold the wires in place and electrically connect them inside the board.  
