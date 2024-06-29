@@ -1,36 +1,13 @@
-# Template
-
-**Please keep the total length of the tutorial below 25k characters.** You can include code that is linked to a repository. Keep the code snippets in the tutorial short.
-
 ## Temperature and humidity measurements using Ubidots
-
-Give a short and brief overview of what your project is about.
-What needs to be included:
-
-- [x] Title
-- [x] Your name and student credentials (xx666x)
-- [x] Short project overview
-- [x] How much time it might take to do (approximation)
-
 Oskar Sturebrand (os222ut)
-
 With the help of a DHT11,  Raspberry pico WH and the platform Ubidots, I was able to measure and visualize my indoor temperature and humidity in a very easy way.
-
 Time to recreate: approximately 4-6 hours
 
 ### Objective
-
-Describe why you have chosen to build this specific device. What purpose does it serve? What do you want to do with the data, and what new insights do you think it will give?
-
-- [x] Why you chose the project
-- [x] What purpose does it serve
-- [x] What insights you think it will give
-
 I chose this project to be able to measure the temperature and humidity of my indoor environment in an easy and hands off manner. This project will help me determine and visualize what effect strategies have on cooling my indoor temperature. It also allows me to track humidity which also has a big impact on perceived temperature. 
 
 
 ### Material
-
 Explain all material that is needed. All sensors, where you bought them and their specifications. Please also provide pictures of what you have bought and what you are using.
 
 - [x] List of material
@@ -48,10 +25,13 @@ I bought all the components off the website https://www.electrokit.com
 | 1        | Micro USB cable      | 39 SEK  |
 
 #### Raspberry Pi Pico WH
-The pi is where the script is executed from and is the the brain of this project. It queries the DHT11 sensor for the temperature and humidity readings and sends it to Ubidots. 
+The Pico is a low-cost microcontroller board. It's where the script is executed from and is the the brain of this project. It queries the DHT11 sensor for the temperature and humidity readings and sends it to Ubidots.
+![pico c](https://github.com/Oskar1818/LNU-IOT/assets/70581204/a082c1a5-4ba8-4520-9c54-98e0de3c1d6f)
+
 
 #### DHT11
-This is the sensor that I used to measure the temperature and humidity.
+This is the sensor that I used to measure the temperature and humidity. Bellow are some technicall details of its capabilities:
+![DHT11 c](https://github.com/Oskar1818/LNU-IOT/assets/70581204/e4d59bc7-71b4-45ee-8d27-a403c9bb9920)
 
 | Item  | Measurement Range | Humidity Accuracy | Temperature Accuracy | Resolution |
 | ----- | ----------------- | ----------------- | -------------------- | ---------- |
@@ -59,14 +39,14 @@ This is the sensor that I used to measure the temperature and humidity.
 |       |                   |                   |                      |            |
 
 #### Jumper wires
-The jumper wires are used to connect the pico and the other components electrically. In this project we use them to connect the DHT11 to the pico.
-
+The jumper wires are metal wires used to connect components electrically. They are often used in combination with a breadboard for easy setup.
+![wires c](https://github.com/Oskar1818/LNU-IOT/assets/70581204/66ec99f2-a465-455e-9842-f69b6cfba4fe)
 
 #### Breadboard
-The breadboard is used to connect the different together without having to solder. 
+The breadboard is used in combination with jumper wires to connect the different components together without having to solder. The breadboard has small holes which hold the wires in place and electrically connect them inside the board.  
+![bread c](https://github.com/Oskar1818/LNU-IOT/assets/70581204/8f0753d2-d404-472d-8da4-193f6335470f)
 
 ### Computer setup
-
 How is the device programmed. Which IDE are you using. Describe all steps from flashing the firmware, installing plugins in your favorite editor. How flashing is done on MicroPython. The aim is that a beginner should be able to understand.
 
 - [ ] Chosen IDE
