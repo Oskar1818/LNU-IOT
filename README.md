@@ -8,12 +8,6 @@ I chose this project to be able to measure the temperature and humidity of my in
 
 
 ### Material
-Explain all material that is needed. All sensors, where you bought them and their specifications. Please also provide pictures of what you have bought and what you are using.
-
-- [x] List of material
-- [ ] What the different things (sensors, wires, controllers) do - short specifications
-- [x] Where you bought them and how much they cost
-
 I bought all the components off the website https://www.electrokit.com
 
 | Quantity | Component            | Price   |
