@@ -167,14 +167,6 @@ time.sleep(DELAY)
 ```
 
 ### Transmitting the data / connectivity
-
-How is the data transmitted to the internet or local server? Describe the package format. All the different steps that are needed in getting the data to your end-point. Explain both the code and choice of wireless protocols.
-
-- [ ] How often is the data sent? 
-- [ ] Which wireless protocols did you use (WiFi, LoRa, etc ...)?
-- [ ] Which transport protocols were used (MQTT, webhook, etc ...)
-- [ ] *Elaborate on the design choices regarding data transmission and wireless protocols. That is how your choices affect the device range and battery consumption.
-
 It not really possible to say exactly how often data is sent, but in general data is being sent within 2 seconds of a temperature change of 1 degree or humidity change of 2%. Additionally, one datapoint of each the temperature and humidity is sent periodically every 10 minutes. 
 
 I'm using WiFi and HTTP requests to send the data throught the REST API because it was easy to implement on the Pico. The steps to send the data are as follows:
@@ -233,8 +225,12 @@ Describe the presentation part. How is the dashboard built? How long is the data
 
 - [ ] Provide visual examples on how the dashboard looks. Pictures needed.
 - [ ] How often is data saved in the database.
-- [ ] *Explain your choice of database.
-- [ ] *Automation/triggers of the data.
+
+I used the metric, gauge and line chart widgets on ubidots to build my dashboard and it looks like this:
+
+<img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/a0e02ea5-8065-4134-9985-cce8816acd2d" alt="bread" width="600"/>
+
+Since I'm using ubidots STEM plan, the data retention period is lmited to 1 month and its not really possible to say how often data is saved in the database, as i explained in the previous section, its depentent on temperature and humidity changes. But at least one data point per 10 min is saved. 
 
 ### Finalizing the design
 
@@ -243,5 +239,11 @@ Show the final results of your project. Give your final thoughts on how you thin
 - [ ] Show final results of the project
 - [ ] Pictures
 - [ ] *Video presentation
+
+I'm very happy with the project, and its been useful to be able to see the indoor temperature in an easy way through ubidots. I've also found it intresting to see how the temperature and humidity values changed over time. Being able to see the cyclical variation due to the day/night cyle is also cool. To further improve this project, I would make a more permanent solution by soldering the parts together and consider upgrading the sensor to another sensor thats more acurate. It would also be intresting to add more sensors to be able to monitor other aspects of my indoor enviroment to be able to assess the air quality better. 
+
+Here's a picture of the complete setup :)
+<img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/5b01e196-ca7c-492e-bc26-4230fe1b063a" alt="bread" width="600"/>
+
 
 ---
