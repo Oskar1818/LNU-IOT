@@ -212,12 +212,6 @@ def sendData(device, variable, value):
 ```
 
 ### Presenting the data
-
-Describe the presentation part. How is the dashboard built? How long is the data preserved in the database?
-
-- [ ] Provide visual examples on how the dashboard looks. Pictures needed.
-- [ ] How often is data saved in the database.
-
 I used the metric, gauge and line chart widgets on ubidots to build my dashboard and it looks like this:
 
 <img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/a0e02ea5-8065-4134-9985-cce8816acd2d" alt="bread" width="600"/>
