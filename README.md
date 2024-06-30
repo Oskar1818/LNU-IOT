@@ -243,6 +243,7 @@ Show the final results of your project. Give your final thoughts on how you thin
 I'm very happy with the project, and its been useful to be able to see the indoor temperature in an easy way through ubidots. I've also found it intresting to see how the temperature and humidity values changed over time. Being able to see the cyclical variation due to the day/night cyle is also cool. To further improve this project, I would make a more permanent solution by soldering the parts together and consider upgrading the sensor to another sensor thats more acurate. It would also be intresting to add more sensors to be able to monitor other aspects of my indoor enviroment to be able to assess the air quality better. 
 
 Here's a picture of the complete setup :)
+
 <img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/5b01e196-ca7c-492e-bc26-4230fe1b063a" alt="bread" width="600"/>
 
 
