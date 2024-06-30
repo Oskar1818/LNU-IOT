@@ -62,6 +62,14 @@ the complete steps can be fond here: https://hackmd.io/@lnu-iot/rkiTJj8O9
 
 How is all the electronics connected? Describe all the wiring, good if you can show a circuit diagram. Be specific on how to connect everything, and what to think of in terms of resistors, current and voltage. Is this only for a development setup or could it be used in production?
 
+In the images bellow you can see exactly how everything is connected. I created a circuit diagram in Wokwi, unfortunatly it only had the DHT22 sensor, so i had to use it instead in the diagram. If we ignore the It's right most pin, the connection is identical to the DHT11. 
+
+Looking at the pin schematic of the Pico, we can see that the **red** jumper wire is connected to ground on the picos 38:th pin, which is then connected to the DHT11's right most pin.
+
+The **oragne** wire is connected to pin 36, which is the 3v pin. That is then connected to the middle pin of the sensor.
+
+Lastly, the **yellow** wire is connected to the 32:nd pin on the pico, which is GP27 where the data is read. 
+
 <img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/39cec65e-60f5-40db-9d0d-e278a689c2c9" alt="bread" width="600"/>
 
 <img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/0285446b-20b6-4189-b72b-8ea22c29a27b" alt="bread" width="600"/>
