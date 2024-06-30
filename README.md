@@ -59,9 +59,6 @@ I went the recommended path on the road map and used visual studio code as my ID
 the complete steps can be fond here: https://hackmd.io/@lnu-iot/rkiTJj8O9
 
 ### Putting everything together
-
-How is all the electronics connected? Describe all the wiring, good if you can show a circuit diagram. Be specific on how to connect everything, and what to think of in terms of resistors, current and voltage. Is this only for a development setup or could it be used in production?
-
 In the images bellow you can see exactly how everything is connected. I created a circuit diagram in Wokwi, unfortunatly it only had the DHT22 sensor, so i had to use it instead in the diagram. If we ignore the It's right most pin, the connection is identical to the DHT11. 
 
 Looking at the pin schematic of the Pico, we can see that the **red** jumper wire is connected to ground on the picos 38:th pin, which is then connected to the DHT11's right most pin.
@@ -74,20 +71,10 @@ Lastly, the **yellow** wire is connected to the 32:nd pin on the pico, which is 
 
 <img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/0285446b-20b6-4189-b72b-8ea22c29a27b" alt="bread" width="600"/>
 
-
 <img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/02625f6e-5cb0-4cf0-a9f6-dda93275a0bf" alt="bread" width="600"/>
 
-- [ ] Circuit diagram (can be hand drawn)
-- [ ] *Electrical calculations
-
 ### Platform
-
-Describe your choice of platform. If you have tried different platforms it can be good to provide a comparison.
-
-Is your platform based on a local installation or a cloud? Do you plan to use a paid subscription or a free? Describe the different alternatives on going forward if you want to scale your idea.
-
-- [ ] Describe platform in terms of functionality
-- [ ] *Explain and elaborate what made you choose this platform 
+I used Ubidots because it was easiest to setup without having to self host anything. Its very convinient to have everything in the cloud, and Ubidots STEM plan is very generous. It allows you to upload around 4000 data points per 24h which is more than 2 a minute which was more than enough for my application. The only downside is that they only allow you to retain your data for 1 month, so that's something that would need to be improved to scale the project to a more permenant solution. A way to solve that could be to self host a database. 
 
 ### The code
 
