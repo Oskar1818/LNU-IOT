@@ -71,8 +71,6 @@ Lastly, the **yellow** wire is connected to the 32:nd pin on the pico, which is 
 
 <img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/0285446b-20b6-4189-b72b-8ea22c29a27b" alt="bread" width="600"/>
 
-<img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/02625f6e-5cb0-4cf0-a9f6-dda93275a0bf" alt="bread" width="600"/>
-
 ### Platform
 I used Ubidots because it was easiest to setup without having to self host anything. Its very convinient to have everything in the cloud, and Ubidots STEM plan is very generous. It allows you to upload around 4000 data points per 24h which is more than 2 a minute which was more than enough for my application. The only downside is that they only allow you to retain your data for 1 month, so that's something that would need to be improved to scale the project to a more permenant solution. A way to solve that could be to self host a database. 
 
@@ -233,13 +231,6 @@ I used the metric, gauge and line chart widgets on ubidots to build my dashboard
 Since I'm using ubidots STEM plan, the data retention period is lmited to 1 month and its not really possible to say how often data is saved in the database, as i explained in the previous section, its depentent on temperature and humidity changes. But at least one data point per 10 min is saved. 
 
 ### Finalizing the design
-
-Show the final results of your project. Give your final thoughts on how you think the project went. What could have been done in an other way, or even better? Pictures are nice!
-
-- [ ] Show final results of the project
-- [ ] Pictures
-- [ ] *Video presentation
-
 I'm very happy with the project, and its been useful to be able to see the indoor temperature in an easy way through ubidots. I've also found it intresting to see how the temperature and humidity values changed over time. Being able to see the cyclical variation due to the day/night cyle is also cool. To further improve this project, I would make a more permanent solution by soldering the parts together and consider upgrading the sensor to another sensor thats more acurate. It would also be intresting to add more sensors to be able to monitor other aspects of my indoor enviroment to be able to assess the air quality better. 
 
 Here's a picture of the complete setup :)
