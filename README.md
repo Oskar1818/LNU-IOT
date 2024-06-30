@@ -26,10 +26,12 @@ I bought all the components off the website https://www.electrokit.com
 
 #### Raspberry Pi Pico WH
 The Pico is a low-cost microcontroller board. It's where the script is executed from and is the the brain of this project. It queries the DHT11 sensor for the temperature and humidity readings and sends it to Ubidots.
+
 <img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/a082c1a5-4ba8-4520-9c54-98e0de3c1d6f" alt="pico" width="600"/>
 
 #### DHT11
 This is the sensor that I used to measure the temperature and humidity. Bellow are some technicall details of its capabilities:
+
 <img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/e4d59bc7-71b4-45ee-8d27-a403c9bb9920" alt="sensor" width="600"/>
 
 | Item  | Measurement Range | Humidity Accuracy | Temperature Accuracy | Resolution |
@@ -38,11 +40,13 @@ This is the sensor that I used to measure the temperature and humidity. Bellow a
 
 #### Jumper wires
 The jumper wires are metal wires used to connect components electrically. They are often used in combination with a breadboard for easy setup.
+
 <img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/66ec99f2-a465-455e-9842-f69b6cfba4fe" alt="wires" width="600"/>
 
 
 #### Breadboard
 The breadboard is used in combination with jumper wires to connect the different components together without having to solder. The breadboard has small holes which hold the wires in place and electrically connect them inside the board.  
+
 <img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/8f0753d2-d404-472d-8da4-193f6335470f" alt="bread" width="600"/>
 
 
