@@ -133,37 +133,37 @@ while True:
 
 Here we are taking another time stamp, and getting the sensor readings from the tempSensor.
 ```py
-        current_time = time.time()
-        tempSensor.measure()
-        t2, h2 = tempSensor.temperature(), tempSensor.humidity()
-        print(f"Temperature: {t2} - Humidity: {h2}%")
+current_time = time.time()
+tempSensor.measure()
+t2, h2 = tempSensor.temperature(), tempSensor.humidity()
+print(f"Temperature: {t2} - Humidity: {h2}%")
 ```
 
 We basically send data based on two diffrent conditons; 1. If 10min has elapsed since the last data point was sent. or 2. if the sensor reading changes by 1 degree for the temperature and 2% for humidity (thats why we use abs(h2 - h1)) to prevent oscillations. 
 ```py
-        # Determine if data should be sent
-        time_triggered = current_time - last_sent_time >= TIME_TRIGGER
-        temp_changed = t1 is None or t2 != t1
-        humidity_changed = h1 is None or abs(h2 - h1) > 2
+# Determine if data should be sent
+time_triggered = current_time - last_sent_time >= TIME_TRIGGER
+temp_changed = t1 is None or t2 != t1
+humidity_changed = h1 is None or abs(h2 - h1) > 2
 ```
 
 So basically, if it has been more than 10 min, or if temperature changed, or if humidity changed we enter the if statement. We then diffirentiate between temp_changed and humidity_changed to determine what data to send. Otherwise we just print "Temperature and Humidity unchanged." and move on. 
 ```py
-        if time_triggered or temp_changed or humidity_changed:
-            if temp_changed or time_triggered:
-                sendData(DEVICE_LABEL, TEMPERATURE_LABEL, t2)
-                t1 = t2
-            if humidity_changed or time_triggered:
-                sendData(DEVICE_LABEL, HUMIDITY_LABEL, h2)
-                h1 = h2
-            last_sent_time = current_time
-        else:
-            print("Temperature and Humidity unchanged.")
+if time_triggered or temp_changed or humidity_changed:
+    if temp_changed or time_triggered:
+        sendData(DEVICE_LABEL, TEMPERATURE_LABEL, t2)
+        t1 = t2
+    if humidity_changed or time_triggered:
+        sendData(DEVICE_LABEL, HUMIDITY_LABEL, h2)
+        h1 = h2
+    last_sent_time = current_time
+else:
+    print("Temperature and Humidity unchanged.")
 ```
 
 which is just to sleep for 2 seconds, before we do the same comparison again.
 ```py
-    time.sleep(DELAY)
+time.sleep(DELAY)
 ```
 
 ### Transmitting the data / connectivity
