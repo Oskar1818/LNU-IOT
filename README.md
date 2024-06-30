@@ -62,9 +62,11 @@ the complete steps can be fond here: https://hackmd.io/@lnu-iot/rkiTJj8O9
 
 How is all the electronics connected? Describe all the wiring, good if you can show a circuit diagram. Be specific on how to connect everything, and what to think of in terms of resistors, current and voltage. Is this only for a development setup or could it be used in production?
 
-![image](https://github.com/Oskar1818/LNU-IOT/assets/70581204/0285446b-20b6-4189-b72b-8ea22c29a27b)
+
+<img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/0285446b-20b6-4189-b72b-8ea22c29a27b" alt="bread" width="600"/>
 
 
+<img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/02625f6e-5cb0-4cf0-a9f6-dda93275a0bf" alt="bread" width="600"/>
 
 - [ ] Circuit diagram (can be hand drawn)
 - [ ] *Electrical calculations
