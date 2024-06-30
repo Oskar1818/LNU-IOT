@@ -83,7 +83,7 @@ Import core functions of your code here, and don't forget to explain what you ha
 I used the code from the road map on connecting to Ubidots using HTTP requests on REST API to setup the wifi and http requests https://hackmd.io/@lnu-iot/r1k63jjwo. 
 
 The intresting parts of the code are essentially only configuring some constants:
-```python=
+```py
 # Configuration Constants
 TOKEN = "*****"
 DEVICE_LABEL = "picowboard"
@@ -94,13 +94,13 @@ TIME_TRIGGER = 10 * 60  # 10 minutes in seconds
 ```
 
 Initializing the temperature and humidity sensor to the correct pin:
-```python=
+```py
 # Sensor Initialization
 tempSensor = dht.DHT11(machine.Pin(27))  # DHT11 Constructor
 ```
 
 This is the main loop. In the first couple of lines, Im just Initializing a t1 and h1 variable, which will hold the first of two temperature and humidity readings. This value will be used later by comparing it to a second value, t2 and h2 to see if it has changed. We also store the current time in last_sent_time, this will be used later to keep track of when data was last sent.
-```python=
+```py
 # Main Loop
 t1, h1 = None, None  # Initialize previous temperature and humidity
 last_sent_time = time.time()
@@ -132,7 +132,7 @@ while True:
 ```
 
 Here we are taking another time stamp, and getting the sensor readings from the tempSensor.
-```python=
+```py
         current_time = time.time()
         tempSensor.measure()
         t2, h2 = tempSensor.temperature(), tempSensor.humidity()
@@ -140,7 +140,7 @@ Here we are taking another time stamp, and getting the sensor readings from the 
 ```
 
 We basically send data based on two diffrent conditons; 1. If 10min has elapsed since the last data point was sent. or 2. if the sensor reading changes by 1 degree for the temperature and 2% for humidity (thats why we use abs(h2 - h1)) to prevent oscillations. 
-```python=
+```py
         # Determine if data should be sent
         time_triggered = current_time - last_sent_time >= TIME_TRIGGER
         temp_changed = t1 is None or t2 != t1
@@ -148,7 +148,7 @@ We basically send data based on two diffrent conditons; 1. If 10min has elapsed 
 ```
 
 So basically, if it has been more than 10 min, or if temperature changed, or if humidity changed we enter the if statement. We then diffirentiate between temp_changed and humidity_changed to determine what data to send. Otherwise we just print "Temperature and Humidity unchanged." and move on. 
-```python=
+```py
         if time_triggered or temp_changed or humidity_changed:
             if temp_changed or time_triggered:
                 sendData(DEVICE_LABEL, TEMPERATURE_LABEL, t2)
@@ -162,14 +162,9 @@ So basically, if it has been more than 10 min, or if temperature changed, or if 
 ```
 
 which is just to sleep for 2 seconds, before we do the same comparison again.
-```python=
+```py
     time.sleep(DELAY)
 ```
-
-```python=
-```
-
-
 
 ### Transmitting the data / connectivity
 
