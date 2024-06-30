@@ -1,10 +1,10 @@
 ## Temperature and humidity measurements using Ubidots
 Oskar Sturebrand (os222ut)
-With the help of a DHT11,  Raspberry pico WH and the platform Ubidots, I was able to measure and visualize my indoor temperature and humidity in a very easy way.
+With the help of a DHT11,  Raspberry PICO WH and the platform Ubidots, I was able to measure and visualize my indoor temperature and humidity in a very easy way.
 Time to recreate: approximately 4-6 hours
 
 ### Objective
-I chose this project to be able to measure the temperature and humidity of my indoor environment in an easy and hands off manner. This project will help me determine and visualize what effect strategies have on cooling my indoor temperature. It also allows me to track humidity which also has a big impact on perceived temperature. 
+I chose this project to be able to measure the temperature and humidity of my indoor environment in an easy and hands-off manner. This project will help me determine and visualize what effect strategies have on cooling my indoor temperature. It also allows me to track humidity, which also has a big impact on perceived temperature. 
 
 
 ### Material
@@ -19,12 +19,12 @@ I bought all the components off the website https://www.electrokit.com
 | 1        | Micro USB cable      | 39 SEK  |
 
 #### Raspberry Pi Pico WH
-The Pico is a low-cost microcontroller board. It's where the script is executed from and is the the brain of this project. It queries the DHT11 sensor for the temperature and humidity readings and sends it to Ubidots.
+The Pico is a low-cost microcontroller board. It's where the script is executed from and is the brain of this project. It queries the DHT11 sensor for the temperature and humidity readings and sends them to Ubidots.
 
 <img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/a082c1a5-4ba8-4520-9c54-98e0de3c1d6f" alt="pico" width="600"/>
 
 #### DHT11
-This is the sensor that I used to measure the temperature and humidity. Bellow are some technicall details of its capabilities:
+This is the sensor that I used to measure the temperature and humidity. Below are some technical details of its capabilities:
 
 <img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/e4d59bc7-71b4-45ee-8d27-a403c9bb9920" alt="sensor" width="600"/>
 
@@ -39,39 +39,36 @@ The jumper wires are metal wires used to connect components electrically. They a
 
 
 #### Breadboard
-The breadboard is used in combination with jumper wires to connect the different components together without having to solder. The breadboard has small holes which hold the wires in place and electrically connect them inside the board.  
+The breadboard is used in combination with jumper wires to connect the different components together without having to solder. The breadboard has small holes that hold the wires in place and electrically connect them inside the board.  
 
 <img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/8f0753d2-d404-472d-8da4-193f6335470f" alt="bread" width="600"/>
 
 
 ### Computer setup
-I went the recommended path on the road map and used visual studio code as my IDE, the benefit being that i can use the Pymakr plugin to upload (flash) the code to the pico. The steps i took to setup the development enviroment followed the provided guide from the road map. But the general steps were: 
-1. download and install node.js
-2. download and install vs code
-3. install the pymakr plugin from the vs code store
+I went the recommended path on the road map and used visual studio code as my IDE, the benefit being that I can use the Pymakr plugin to upload (flash) the code to the PICO. The steps I took to setup the development environment followed the provided guide from the road map. But the general steps were: 
+1. Download and install node.js
+2. Download and install vs code
+3. Install the pymakr plugin from the vs code store
 
-the complete steps can be fond here: https://hackmd.io/@lnu-iot/rkiTJj8O9
+the complete steps can be found here: https://hackmd.io/@lnu-iot/rkiTJj8O9
 
 ### Putting everything together
-In the images bellow you can see exactly how everything is connected. I created a circuit diagram in Wokwi, unfortunatly it only had the DHT22 sensor, so i had to use it instead in the diagram. If we ignore the It's right most pin, the connection is identical to the DHT11. 
+In the images below, you can see exactly how everything is connected. I created a circuit diagram in Wokwi, unfortunately it only had the DHT22 sensor, so I had to use it instead in the diagram. If we ignore It's rightmost pin, the connection is identical to the DHT11. 
 
-Looking at the pin schematic of the Pico, we can see that the **red** jumper wire is connected to ground on the picos 38:th pin, which is then connected to the DHT11's right most pin.
+Looking at the pin schematic of the Pico, we can see that the **red** jumper wire is connected to ground on the picos 38:th pin, which is then connected to the DHT11's rightmost pin.
 
-The **oragne** wire is connected to pin 36, which is the 3v pin. That is then connected to the middle pin of the sensor.
+The **orange** wire is connected to pin 36, which is the 3V pin. That is then connected to the middle pin of the sensor.
 
-Lastly, the **yellow** wire is connected to the 32:nd pin on the pico, which is GP27 where the data is read. 
+Lastly, the **yellow** wire is connected to the 32:nd pin on the PICO, which is GP27 where the data is read. 
 
 <img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/39cec65e-60f5-40db-9d0d-e278a689c2c9" alt="bread" width="600"/>
 
 <img src="https://github.com/Oskar1818/LNU-IOT/assets/70581204/0285446b-20b6-4189-b72b-8ea22c29a27b" alt="bread" width="600"/>
 
 ### Platform
-I used Ubidots because it was easiest to setup without having to self host anything. Its very convinient to have everything in the cloud, and Ubidots STEM plan is very generous. It allows you to upload around 4000 data points per 24h which is more than 2 a minute which was more than enough for my application. The only downside is that they only allow you to retain your data for 1 month, so that's something that would need to be improved to scale the project to a more permenant solution. A way to solve that could be to self host a database. 
+I used Ubidots because it was the easiest to set up without having to self-host anything. It's very convenient to have everything in the cloud, and Ubidots STEM plan is very generous. It allows you to upload around 4000 data points per 24 hours, which is more than 2 per minute, which was more than enough for my application. The only downside is that they only allow you to retain your data for 1 month, so that's something that would need to be improved to scale the project to a more permanent solution. A way to solve that could be to self-host a database. 
 
 ### The code
-
-Import core functions of your code here, and don't forget to explain what you have done! Do not put too much code here, focus on the core functionalities. Have you done a specific function that does a calculation, or are you using clever function for sending data on two networks? Or, are you checking if the value is reasonable etc. Explain what you have done, including the setup of the network, wireless, libraries and all that is needed to understand.
-
 I used the code from the road map on connecting to Ubidots using HTTP requests on REST API to setup the wifi and http requests https://hackmd.io/@lnu-iot/r1k63jjwo. 
 
 The intresting parts of the code are essentially only configuring some constants:
