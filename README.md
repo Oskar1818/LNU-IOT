@@ -51,11 +51,12 @@ The breadboard is used in combination with jumper wires to connect the different
 
 
 ### Computer setup
-How is the device programmed. Which IDE are you using. Describe all steps from flashing the firmware, installing plugins in your favorite editor. How flashing is done on MicroPython. The aim is that a beginner should be able to understand.
+I went the recommended path on the road map and used visual studio code as my IDE, the benefit being that i can use the Pymakr plugin to upload (flash) the code to the pico. The steps i took to setup the development enviroment followed the provided guide from the road map. But the general steps were: 
+1. download and install node.js
+2. download and install vs code
+3. install the pymakr plugin from the vs code store
 
-- [ ] Chosen IDE
-- [ ] How the code is uploaded
-- [ ] Steps that you needed to do for your computer. Installation of Node.js, extra drivers, etc.
+the complete steps can be fond here: https://hackmd.io/@lnu-iot/rkiTJj8O9
 
 ### Putting everything together
 
