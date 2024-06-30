@@ -175,6 +175,58 @@ How is the data transmitted to the internet or local server? Describe the packag
 - [ ] Which transport protocols were used (MQTT, webhook, etc ...)
 - [ ] *Elaborate on the design choices regarding data transmission and wireless protocols. That is how your choices affect the device range and battery consumption.
 
+It not really possible to say exactly how often data is sent, but in general data is being sent within 2 seconds of a temperature change of 1 degree or humidity change of 2%. Additionally, one datapoint of each the temperature and humidity is sent periodically every 10 minutes. 
+
+I'm using WiFi and HTTP requests to send the data throught the REST API because it was easy to implement on the Pico. The steps to send the data are as follows:
+
+The connect function is called from the boot.py file which connects to the WiFi network.
+```py
+def connect():
+    wlan = network.WLAN(network.STA_IF)         # Put modem on Station mode
+    if not wlan.isconnected():                  # Check if already connected
+        print('connecting to network...')
+        wlan.active(True)                       # Activate network interface
+        # set power mode to get WiFi power-saving off (if needed)
+        wlan.config(pm = 0xa11140)
+        wlan.connect(keys.WIFI_SSID, keys.WIFI_PASS)  # Your WiFi Credential
+        print('Waiting for connection...', end='')
+        # Check if it is connected otherwise wait
+        while not wlan.isconnected() and wlan.status() >= 0:
+            print('.', end='')
+            sleep(1)
+    # Print the IP assigned by router
+    ip = wlan.ifconfig()[0]
+    print('\nConnected on {}'.format(ip))
+    return ip
+```
+
+Then a json object with the data is created:
+```py
+def build_json(variable, value):
+    """Builds the JSON payload to send the request."""
+    try:
+        return {variable: {"value": value}}
+    except Exception as e:
+        print(f"Error building JSON: {e}")
+        return None
+```
+
+which is then sent using the sendData funtion:
+```py
+def sendData(device, variable, value):
+    """Sends data to Ubidots Restful Webservice."""
+    try:
+        url = f"https://industrial.api.ubidots.com/api/v1.6/devices/{device}"
+        headers = {"X-Auth-Token": TOKEN, "Content-Type": "application/json"}
+        data = build_json(variable, value)
+        if data:
+            print(data)
+            response = requests.post(url=url, headers=headers, json=data)
+            return response.json()
+    except Exception as e:
+        print(f"Error sending data: {e}")
+```
+
 ### Presenting the data
 
 Describe the presentation part. How is the dashboard built? How long is the data preserved in the database?
